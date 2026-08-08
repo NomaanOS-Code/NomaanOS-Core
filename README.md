@@ -78,4 +78,4 @@ cd NomaanOS-Core
 # Build and run via Docker
 docker build -t nomaanos-core .
 docker run --rm nomaanos-core
-```C
+```
