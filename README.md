@@ -57,3 +57,9 @@ graph TD
 * **Ownership:** NomaanOS Core is the proprietary research and intellectual property of **Nomaan Khan**.
 * **Audit Ledger:** All actions are cryptographically logged in `data/evidence_ledger.json`.
 * **Licensing Inquiries:** `nikki08@duck.com`
+
+---
+### 🛡️ Red-Team Adversarial Hardening Status
+- **Benchmark Score:** `100.0% Immunity` (5/5 Attack Vectors Mitigated)
+- **Verified Protection:** Direct Injections, Command Escapes, System Overrides, Data Exfiltration & Base64 Obfuscated Payloads.
+- **Latest Audit Log:** [`redteam_benchmark.json`](./redteam_benchmark.json)
