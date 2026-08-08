@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  nomaanos-core:
+    build: .
+    container_name: nomaanos-core
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+    command: python3 stress_test.py

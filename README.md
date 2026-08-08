@@ -63,3 +63,19 @@ graph TD
 - **Benchmark Score:** `100.0% Immunity` (5/5 Attack Vectors Mitigated)
 - **Verified Protection:** Direct Injections, Command Escapes, System Overrides, Data Exfiltration & Base64 Obfuscated Payloads.
 - **Latest Audit Log:** [`redteam_benchmark.json`](./redteam_benchmark.json)
+
+
+---
+### 🐳 One-Click Docker Execution
+
+Run NomaanOS Core and Aegis Red-Team Engine in an isolated sandbox:
+
+```bash
+# Clone repository
+git clone https://github.com/NomaanOS-Code/NomaanOS-Core.git
+cd NomaanOS-Core
+
+# Build and run via Docker
+docker build -t nomaanos-core .
+docker run --rm nomaanos-core
+```C
