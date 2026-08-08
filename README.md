@@ -1,6 +1,6 @@
 # 🛡️ NomaanOS Core: The Sovereign AI Operating Environment
 
-> **v6.0 "Command Center" | Status: STABLE (Maturity: 10/10)**  
+> **v6.0 "Command Center" | Status: STABLE (Maturity: 10/10)**
 > **Author:** Nomaan Khan | Tech Visionary & Cybersecurity Researcher | Scholar @ IHFC - IIT Delhi
 
 NomaanOS is an agentic overlay for Linux kernels designed to enforce **Digital Sovereignty**. Unlike traditional shells, it decouples AI Intent from system execution using a deterministic Sentinel Proxy, ensuring immunity against prompt injection and hallucinations.
@@ -11,25 +11,26 @@ NomaanOS is an agentic overlay for Linux kernels designed to enforce **Digital S
 
 | Component | Status | Function |
 | :--- | :--- | :--- |
-| 🧠 **AEGIS Brain** | \`SOVEREIGN\` | Local Intelligence (Phi-3/Llama via Ollama). 100% Offline Capable. |
-| 🔥 **Phoenix Engine** | \`SYNCED\` | Cryptographic Self-Healing. Restores corrupted logic automatically. |
-| ⌨️ **Neural Lock** | \`ACTIVE\` | Continuous Authentication via Keystroke Dynamics ($\Delta < 0.30$). |
-| ⛩️ **Sentinel Proxy** | \`HARDENED\` | Deterministic Logic Gate. Blocks unauthorized AI commands. |
-| 📦 **Process Sandbox** | \`ACTIVE\` | Isolates high-CPU processes using SIGSTOP signals. |
-| ☢️ **Panic Button** | \`ARMED\` | Scorched Earth Protocol for emergency data destruction. |
+| 🧠 **AEGIS Brain** | `SOVEREIGN` | Local Intelligence (Phi-3/Llama via Ollama). 100% Offline Capable. |
+| 🔥 **Phoenix Engine** | `SYNCED` | Cryptographic Self-Healing. Restores corrupted logic automatically. |
+| ⌨️ **Neural Lock** | `ACTIVE` | Continuous Authentication via Keystroke Dynamics ($\Delta < 0.30$). |
+| ⛩️ **Sentinel Proxy** | `HARDENED` | Deterministic Logic Gate. Blocks unauthorized AI commands. |
+| 📦 **Process Sandbox** | `ACTIVE` | Isolates high-CPU processes using SIGSTOP signals. |
+| ☢️ **Panic Button** | `ARMED` | Scorched Earth Protocol for emergency data destruction. |
 
 ---
 
 ## 🛠️ Tech Stack & Requirements
+
 * **Core:** Python 3.10+ / Bash / Linux (Pop!_OS / Alpine / Termux)
 * **Local AI:** Ollama (Phi-3 / Llama-3)
 * **Security:** AES-256 Encryption, Sandboxed Execution, Keystroke Dynamics
 
 ---
 
-## 📐 System Architecture (The "Aegis Protocol" - Mermaid Flow)
+## 📐 System Architecture (The "Aegis Protocol")
 
-\`\`\`mermaid
+```mermaid
 graph TD
     A[User Input] --> B[Raw Text Sanitizer / Intent Sanitizer]
     B -->|Clean Intent| C[AEGIS Brain - Local AI / Ollama]
@@ -43,12 +44,12 @@ graph TD
     
     I[Phoenix Engine] -. Monitors Integrity .-> C
     I -. Monitors Integrity .-> D
-\`\`\`
+```
 
 ---
 
 ## ⚖️ Security & Intellectual Property Policy
 
 * **Ownership:** NomaanOS Core is the proprietary research and intellectual property of **Nomaan Khan**.
-* **Audit Ledger:** All actions are cryptographically logged in \`data/evidence_ledger.json\`.
-* **Licensing Inquiries:** \`nomaan.researcher@gmail.com\`
+* **Audit Ledger:** All actions are cryptographically logged in `data/evidence_ledger.json`.
+* **Licensing Inquiries:** `nikki08@duck.com`
