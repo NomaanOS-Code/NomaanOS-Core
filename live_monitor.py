@@ -1,45 +1,48 @@
-import time, os, json, hashlib, datetime
+import os, json, hashlib, datetime
 
-def get_manifest_status():
-    if os.path.exists("INTEGRITY.manifest.json"):
-        try:
-            with open("INTEGRITY.manifest.json") as f:
-                data = json.load(f)
-                # Check all possible keys for manifest hash
-                h = data.get("manifest_hash") or data.get("sha256") or data.get("hash")
-                if not h and "files" in data:
-                    h = hashlib.sha256(str(data["files"]).encode()).hexdigest()
-                return h[:16] if h else "VERIFIED_ACTIVE"
-        except Exception:
-            return "VERIFIED_ACTIVE"
-    return "INITIALIZING"
+LEDGER_FILE = "data/evidence_ledger.json"
 
 def draw_dashboard():
     os.system('clear' if os.name != 'nt' else 'cls')
-    manifest_hash = get_manifest_status()
+    
+    total_inspects = 0
+    total_blocked = 0
+    total_allowed = 0
+    last_event = "NO_EVENTS_LOGGED"
+    last_hash = "N/A"
+
+    if os.path.exists(LEDGER_FILE):
+        try:
+            with open(LEDGER_FILE, "r") as f:
+                logs = json.load(f)
+                total_inspects = len(logs)
+                total_blocked = sum(1 for entry in logs if entry.get("action") == "BLOCKED")
+                total_allowed = sum(1 for entry in logs if entry.get("action") == "ALLOWED")
+                if logs:
+                    last_entry = logs[-1]
+                    last_event = f"{last_entry.get('action')} -> {last_entry.get('payload')[:30]}"
+                    last_hash = last_entry.get("entry_sha256", "N/A")[:16]
+        except Exception:
+            pass
+
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S IST")
     
-    print("\033[92m")
+    print("\033[92m==========================================================================\033[0m")
+    print("      🛡️ NOMAANOS CORE v6.0 // REAL-TIME AEGIS SENTINEL TELEMETRY")
+    print("\033[92m==========================================================================\033[0m")
+    print(f" System Timestamp : {now}")
+    print(f" Scholar / Owner  : Nomaan Khan (IHFC - IIT Delhi)")
+    print(f" Sentinel State   : \033[92mHARDENED & ACTIVE\033[0m")
+    print(f" Ledger Source    : \033[96m{LEDGER_FILE}\033[0m")
     print("==========================================================================")
-    print("      🛡️ NOMAANOS CORE v6.0 // AEGIS LIVE SECURITY & SENTINEL TELEMETRY  ")
+    print("\033[93m[ REAL EVIDENCE LEDGER METRICS ]\033[0m")
+    print(f"  • Total Inspect Requests : {total_inspects}")
+    print(f"  • Threat Vector Blocks   : \033[91m{total_blocked}\033[0m")
+    print(f"  • Authorized Pass-through : \033[92m{total_allowed}\033[0m")
+    print(f"  • Latest SHA-256 Hash    : \033[96m{last_hash}...\033[0m")
+    print(f"  • Recent Activity Trace  : {last_event}")
     print("==========================================================================")
-    print(f"\033[0m System Timestamp  : {now}")
-    print(f" Scholar / Owner   : Nomaan Khan (IHFC - IIT Delhi)")
-    print(f" Aegis Protocol    : \033[92mACTIVE & HARDENED (100% Immunity)\033[0m")
-    print(f" SHA-256 Manifest  : \033[96m{manifest_hash}...\033[0m")
-    print("==========================================================================")
-    print("\033[93m[ LIVE CORE PROCESS TELEMETRY ]\033[0m")
-    print("  • AEGIS Brain (Local LLM Gateway) : \033[92mONLINE (Phi-3 / Llama-3)\033[0m")
-    print("  • Sentinel Proxy (Logic Gate)     : \033[92mHARDENED (0 Injection Deltas)\033[0m")
-    print("  • Phoenix Engine (Self-Healing)   : \033[92mIN-SYNC\033[0m")
-    print("  • Forensic Audit Ledger           : \033[92mLOGGING (Section 65B Ready)\033[0m")
-    print("==========================================================================")
-    print("\033[95m[ RECENT RED-TEAM BENCHMARK SUMMARY ]\033[0m")
-    print("  • Total Injection Vectors Tested  : 10 / 10")
-    print("  • Mitigation Ratio                : 100% BLOCKED")
-    print("  • Average Enforcement Latency     : 1.25 ms")
-    print("==========================================================================")
-    print("\033[90mPress Ctrl+C to exit Live Telemetry Stream...\033[0m")
+    print("\033[90mPress Ctrl+C to exit...\033[0m")
 
 if __name__ == "__main__":
     try:
