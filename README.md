@@ -1,3 +1,5 @@
+![Red-Team Security Benchmark](https://github.com/NomaanOS-Code/NomaanOS-Core/actions/workflows/redteam.yml/badge.svg)
+
 [🌐 Visit Official Website](https://nomaanos-code.github.io/NomaanOS-Core/)
 
 ![Status](https://img.shields.io/badge/Status-STABLE%20v6.0-brightgreen?style=for-the-badge) ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge) ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white) ![Scholar](https://img.shields.io/badge/Scholar-IHFC%20IIT%20Delhi-navy?style=for-the-badge)
