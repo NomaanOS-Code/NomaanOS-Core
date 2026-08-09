@@ -31,15 +31,15 @@ class SentinelAPIHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
 
+    def log_message(self, format, *args):
+        # Silence default HTTP server console noise
+        return
+
 def run_server(port=8080):
     server_address = ('', port)
     httpd = HTTPServer(server_address, SentinelAPIHandler)
-    print(f"\n==========================================================")
-    print(f" 🌐 NOMAANOS REAL REST API LISTENING ON PORT {port}")
-    print(f" Endpoint: http://localhost:{port}/validate")
-    print(f"==========================================================\n")
-    # Quick single handling test mode or loop
-    print("API Server Script Ready & Compiled!")
+    print(f"🌐 NOMAANOS REAL REST API LISTENING ON PORT {port}")
+    httpd.serve_forever() # Continuous listening loop
 
 if __name__ == "__main__":
     run_server()
