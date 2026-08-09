@@ -83,3 +83,8 @@ cd NomaanOS-Core
 docker build -t nomaanos-core .
 docker run --rm nomaanos-core
 ```
+
+### ⚡ Newly Integrated Production Components (August 2026)
+* **`rag_engine.py` (`nos-rag`)**: Real Local Agentic Vector RAG Engine for instant context extraction across research whitepapers.
+* **`api_tester.py` (`nos-api-test`)**: HTTP Socket Integration Tester executing live REST validation against Port 8080.
+* **`nos_exec.py` (`nos-exec`)**: Real-time terminal command execution guard preventing malicious system calls.
