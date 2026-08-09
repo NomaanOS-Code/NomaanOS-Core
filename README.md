@@ -1,3 +1,5 @@
+> 🎓 **Academic & Strategic Alignment:** Developed as part of the *Professional Certificate Program in Generative AI, Machine Learning & Intelligent Automation* offered by **IHFC - I-Hub Foundation for Cobotics (IIT Delhi)** in collaboration with **Simplilearn** and **Microsoft**.
+
 ![Red-Team Security Benchmark](https://github.com/NomaanOS-Code/NomaanOS-Core/actions/workflows/redteam.yml/badge.svg)
 
 [🌐 Visit Official Website](https://nomaanos-code.github.io/NomaanOS-Core/)
