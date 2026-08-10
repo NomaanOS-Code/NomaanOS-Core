@@ -70,5 +70,53 @@
         "matched_pattern": "/etc/passwd",
         "latency_ms": 5.433,
         "entry_sha256": "257bd2bf43559b9a8397f86bc5cbe5ed2a803a645f0e2db7c2fee26735922018"
+    },
+    {
+        "timestamp": "2026-08-10 03:30:39 IST",
+        "payload": "ls -la",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.659,
+        "entry_sha256": "7a3c4294d594ec7eecb0e8c9522b414ab2f533414b8da6927daecb3b38415b44"
+    },
+    {
+        "timestamp": "2026-08-10 03:31:42 IST",
+        "payload": "rm -rf /",
+        "action": "BLOCKED",
+        "matched_pattern": "rm\\s+-rf",
+        "latency_ms": 0.129,
+        "entry_sha256": "09063bfc3d9997184de5897a25cd657ee37b3d79b2e6a97eb43f2cfa11b9b7c3"
+    },
+    {
+        "timestamp": "2026-08-10 03:32:25 IST",
+        "payload": "What is Aegis Protocol?",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.622,
+        "entry_sha256": "3fb86d625bcdd1b8e229149bf183d1ebcd157879eb85494710e96808fbec88b7"
+    },
+    {
+        "timestamp": "2026-08-10 03:37:29 IST",
+        "payload": "ls -la",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.373,
+        "entry_sha256": "ba367f00887e6beadeea1d4db400ead7384fb3f5ad2f1e28a9bf65cd38ad97fa"
+    },
+    {
+        "timestamp": "2026-08-10 03:39:23 IST",
+        "payload": "What are the core components of NomaanOS?",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.62,
+        "entry_sha256": "a5a8fb817b0fec09ac86bfa382423e306e9d0eb9b8e5a7547825ad36d25a103c"
+    },
+    {
+        "timestamp": "2026-08-10 03:45:04 IST",
+        "payload": "ls -la",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.019,
+        "entry_sha256": "afd9c017228701b6176e37d7a87184a39445ce454988e29190bcedfc6210162c"
     }
 ]
