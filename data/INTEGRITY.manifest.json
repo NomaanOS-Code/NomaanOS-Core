@@ -1,30 +1,13 @@
 {
-    "core/sentinel_core.py": {
-        "hash": "7529152b7507417145a0921bff9a0b0ce29bdaabf71e5e192107696a4d0925b8",
-        "last_signed": "2026-08-12T13:33:20.925507"
+    "files": {
+        "core/sentinel_core.py": "22ad03922c9cdad1eb5553243bd5b0f07c91d5937c740053e467c9f6754e0540",
+        "core/nomaan_ai.py": "d52920362643121a03e1f32ffeda790a6c77f98151cee0fc7dc4feffa32fb3bb",
+        "core/api.py": "28af10b613501e73914302b3e7a147cfb9443663c1df32a3391584e5b4f42bd0",
+        "core/rag_engine.py": "aa432a9445603ef7a90499d5acffb3a0b495636d41713be97e03bfed90aff04b",
+        "core/nos_exec.py": "69aecdddc053b221f10e920ba6ed2296d96ac84ddefaadc3538213886b0ede7b",
+        "tests/stress_test.py": "862886581fccaf4c1295cc462a20bd2697e572e55b4c2c191bf57c3ef0a36c08",
+        "tests/redteam_advanced.py": "f546caaded56e325d0f8f1711a8cac4c3d4865bdddecc1f8bd47d44e122c12bd"
     },
-    "core/nomaan_ai.py": {
-        "hash": "d52920362643121a03e1f32ffeda790a6c77f98151cee0fc7dc4feffa32fb3bb",
-        "last_signed": "2026-08-12T13:33:20.925543"
-    },
-    "core/api.py": {
-        "hash": "28af10b613501e73914302b3e7a147cfb9443663c1df32a3391584e5b4f42bd0",
-        "last_signed": "2026-08-12T13:33:20.925559"
-    },
-    "core/rag_engine.py": {
-        "hash": "aa432a9445603ef7a90499d5acffb3a0b495636d41713be97e03bfed90aff04b",
-        "last_signed": "2026-08-12T13:33:20.925572"
-    },
-    "core/nos_exec.py": {
-        "hash": "77ca4cf9d3bc2233147cc470c82a4893c5f625b3c65440c32686961160edb347",
-        "last_signed": "2026-08-12T13:33:20.925584"
-    },
-    "tests/stress_test.py": {
-        "hash": "862886581fccaf4c1295cc462a20bd2697e572e55b4c2c191bf57c3ef0a36c08",
-        "last_signed": "2026-08-12T13:33:20.925596"
-    },
-    "tests/redteam_advanced.py": {
-        "hash": "f546caaded56e325d0f8f1711a8cac4c3d4865bdddecc1f8bd47d44e122c12bd",
-        "last_signed": "2026-08-12T13:33:20.925608"
-    }
+    "signed_at": "2026-08-12T14:15:38.976541",
+    "hmac_signature": "eb9662e569028782b2209d3267f1ab83d6eaf9a9bb65c66b5adb89992b13661b"
 }

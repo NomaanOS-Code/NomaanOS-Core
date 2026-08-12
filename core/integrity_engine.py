@@ -1,10 +1,12 @@
 import os
 import sys
 import json
+import hmac
 import hashlib
 from datetime import datetime
 
-MANIFEST_FILE = "INTEGRITY.manifest.json"
+MANIFEST_FILE = "data/INTEGRITY.manifest.json"
+SIGNING_SECRET = "NOMAANOS_SOVEREIGN_SECRET_KEY_2026"
 
 TARGET_FILES = [
     "core/sentinel_core.py",
@@ -30,22 +32,25 @@ def calculate_sha256(filepath):
         return None
 
 def sign_repository():
-    manifest = {}
-    print("\033[1;34m[INTEGRITY ENGINE]\033[0m Computing cryptographic manifest for core modules...")
+    manifest = {"files": {}, "signed_at": datetime.now().isoformat()}
+    print("\033[1;34m[INTEGRITY ENGINE]\033[0m Computing SHA-256 & HMAC Signature for core modules...")
     
     for filename in TARGET_FILES:
         if os.path.exists(filename):
             file_hash = calculate_sha256(filename)
-            manifest[filename] = {
-                "hash": file_hash,
-                "last_signed": datetime.now().isoformat()
-            }
-            print(f"  ✓ {filename:<20} SHA-256: {file_hash[:16]}...")
+            manifest["files"][filename] = file_hash
+            print(f"  ✓ {filename:<25} SHA-256: {file_hash[:16]}...")
 
+    # HMAC Signing
+    manifest_str = json.dumps(manifest["files"], sort_keys=True)
+    signature = hmac.new(SIGNING_SECRET.encode(), manifest_str.encode(), hashlib.sha256).hexdigest()
+    manifest["hmac_signature"] = signature
+
+    os.makedirs("data", exist_ok=True)
     with open(MANIFEST_FILE, "w") as f:
         json.dump(manifest, f, indent=4)
         
-    print(f"\033[1;32m✅ Repository manifest updated -> {MANIFEST_FILE}\033[0m")
+    print(f"\033[1;32m✅ Signed Cryptographic Manifest generated -> {MANIFEST_FILE}\033[0m")
 
 if __name__ == "__main__":
     sign_repository()
