@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/localhost/workspace/NomaanOS-Core_recovery_final/venv
+VIRTUAL_ENV=/home/localhost/NomaanOS-Core/venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

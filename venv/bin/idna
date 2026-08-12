@@ -1,4 +1,4 @@
-#!/home/localhost/workspace/NomaanOS-Core_recovery_final/venv/bin/python3
+#!/home/localhost/NomaanOS-Core/venv/bin/python3
 import sys
 from idna.cli import main
 if __name__ == '__main__':

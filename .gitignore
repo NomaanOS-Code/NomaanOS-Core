@@ -1,3 +1,9 @@
+# Environments & Virtual Envs
+venv/
 .env
-.vercel
-.env*
+*.pyc
+__pycache__/
+
+# OS Junk
+.DS_Store
+*.log

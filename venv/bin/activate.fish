@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/localhost/workspace/NomaanOS-Core_recovery_final/venv
+set -gx VIRTUAL_ENV /home/localhost/NomaanOS-Core/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

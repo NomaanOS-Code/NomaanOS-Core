@@ -118,5 +118,133 @@
         "matched_pattern": null,
         "latency_ms": 0.019,
         "entry_sha256": "afd9c017228701b6176e37d7a87184a39445ce454988e29190bcedfc6210162c"
+    },
+    {
+        "timestamp": "2026-08-12 12:02:25 IST",
+        "payload": "ls -la",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.012,
+        "entry_sha256": "0a011656fcbe29adaeb0f47ad6bdd45d1e562079e4330d1d7286aa728057ea7b"
+    },
+    {
+        "timestamp": "2026-08-12 12:02:25 IST",
+        "payload": "rm -rf /",
+        "action": "BLOCKED",
+        "matched_pattern": "rm\\s+-rf",
+        "latency_ms": 0.015,
+        "entry_sha256": "9d7204780f8cf5a3f6d26c5924e33fa0af3e1e5cb83872e3a73d3c6fdc1bc04b"
+    },
+    {
+        "timestamp": "2026-08-12 12:11:53 IST",
+        "payload": "hi",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.065,
+        "entry_sha256": "8cef6c03aa18dcff6f4cabe23d358e66fa4595c3d8e1da4594de61a8288bad85"
+    },
+    {
+        "timestamp": "2026-08-12 12:13:05 IST",
+        "payload": "hi",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.075,
+        "entry_sha256": "4a56fab67befdfb90016f13011a1fd8151c88c655d2adfc369bb5ffef94e9110"
+    },
+    {
+        "timestamp": "2026-08-12 13:16:18 IST",
+        "payload": "hi",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.067,
+        "entry_sha256": "b8a50f3da6ce8b3f468b3ba0f7ed94d42f444f0eda8a508d75414363cc4a473c"
+    },
+    {
+        "timestamp": "2026-08-12 13:18:08 IST",
+        "payload": "cat << 'EOF' > nomaan_ai.py",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.021,
+        "entry_sha256": "d04de12b45a6ef289bfde5a138b16fcd4b8cb04a333efc98f8ea9e5575748f91"
+    },
+    {
+        "timestamp": "2026-08-12 13:18:42 IST",
+        "payload": "hi",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.076,
+        "entry_sha256": "d4cc7dfe91aac91c191b45c6ca32f9c3834ab6df9639fcebbf65c81e3de97c56"
+    },
+    {
+        "timestamp": "2026-08-12 13:18:58 IST",
+        "payload": "myself nomaan khan",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.053,
+        "entry_sha256": "c438b540d26cffa06f7457641a164c63e038bfcfaa31e6035d91030ef7abf376"
+    },
+    {
+        "timestamp": "2026-08-12 13:19:13 IST",
+        "payload": "your capabilities",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.034,
+        "entry_sha256": "2fd10411124e1e1dec25f54067bb36099580495ee6678677d831f96b36e29f45"
+    },
+    {
+        "timestamp": "2026-08-12 13:21:18 IST",
+        "payload": "cat << 'EOF' > api.py",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.076,
+        "entry_sha256": "50d9f99a5eb7f8d428af3171d8761bf3235d0846f5cfc713a1be9cf303ced146"
+    },
+    {
+        "timestamp": "2026-08-12 13:22:40 IST",
+        "payload": "ls -la",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.021,
+        "entry_sha256": "d1e5f8c4e5bec56a66e801caf90abb1434dbc16872697da7a8e845bc5a60f9f4"
+    },
+    {
+        "timestamp": "2026-08-12 13:22:40 IST",
+        "payload": "rm -rf /",
+        "action": "BLOCKED",
+        "matched_pattern": "rm\\s+-rf",
+        "latency_ms": 0.018,
+        "entry_sha256": "5371a99cb1e4515515c5a885fd2646182ec2c4c0b47bab001f141169f8b61599"
+    },
+    {
+        "timestamp": "2026-08-12 13:23:33 IST",
+        "payload": "Aegis Protocol",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.016,
+        "entry_sha256": "60f0b7bd189c590a73c9dfcf35d8f517d0a25d4f198154650aad1cb0e7de4b86"
+    },
+    {
+        "timestamp": "2026-08-12 13:23:33 IST",
+        "payload": "cat /etc/passwd",
+        "action": "BLOCKED",
+        "matched_pattern": "/etc/passwd",
+        "latency_ms": 0.014,
+        "entry_sha256": "b27aca32c1fa8fc69e444df17a4bda7da63e2d8d1e6a969e707d071d383433e0"
+    },
+    {
+        "timestamp": "2026-08-12 13:24:42 IST",
+        "payload": "echo 'NomaanOS Core Online'",
+        "action": "ALLOWED",
+        "matched_pattern": null,
+        "latency_ms": 0.014,
+        "entry_sha256": "a714a775f2b8593d305abc4957e13cac64d2a53b35f74002527af4264f2baf32"
+    },
+    {
+        "timestamp": "2026-08-12 13:24:42 IST",
+        "payload": "rm -rf /",
+        "action": "BLOCKED",
+        "matched_pattern": "rm\\s+-rf",
+        "latency_ms": 0.012,
+        "entry_sha256": "2311c60886a291bd5fddaca9fcf5ae63f1f06a44297e79c3953782b09ebfb84e"
     }
 ]

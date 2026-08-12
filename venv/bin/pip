@@ -1,4 +1,4 @@
-#!/home/localhost/workspace/NomaanOS-Core_recovery_final/venv/bin/python3
+#!/home/localhost/NomaanOS-Core/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
