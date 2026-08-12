@@ -19,11 +19,6 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
     - name: Run Cryptographic Integrity Signer
       run: |
         PYTHONPATH=. python3 core/integrity_engine.py
