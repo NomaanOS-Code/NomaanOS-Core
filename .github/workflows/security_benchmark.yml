@@ -30,3 +30,7 @@ jobs:
     - name: Run Advanced Red-Team Adversarial Suite
       run: |
         PYTHONPATH=. python3 tests/redteam_advanced.py
+
+    - name: Run nos_exec.py Allowlist Regression Tests
+      run: |
+        PYTHONPATH=. python3 tests/test_nos_exec.py

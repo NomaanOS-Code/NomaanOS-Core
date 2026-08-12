@@ -38,18 +38,39 @@ def execute_safely(command_str):
 
     cmd_binary = args[0]
 
-    # 3. PATH TRAVERSAL GUARD IN ARGUMENTS
+    # 3. ALLOWLIST ENFORCEMENT (fail closed — no fallback to raw command name)
+    if cmd_binary not in ALLOWED_BINARIES:
+        print(f"\033[1;31m🛑 [403 NOT ALLOWLISTED] Binary '{cmd_binary}' is not in ALLOWED_BINARIES.\033[0m")
+        sys.exit(1)
+
+    binary_path = Path(ALLOWED_BINARIES[cmd_binary]).resolve()
+    if not binary_path.is_file():
+        print(f"\033[1;31m⚠️ [BINARY MISSING] Allowlisted binary not found on disk: {binary_path}\033[0m")
+        sys.exit(1)
+
+    # 4. PATH TRAVERSAL GUARD IN ARGUMENTS (resolved-path based, not substring-based)
+    SENSITIVE_ROOTS = ["/etc", "/proc", "/root", "/sys", "/boot", "/home"]
     for arg in args[1:]:
-        if ".." in arg or arg.startswith("/etc") or arg.startswith("/proc"):
-            print(f"\033[1;31m🛑 [PATH TRAVERSAL BLOCKED] Suspicious argument: {arg}\033[0m")
+        if arg.startswith("-"):
+            continue  # flags like -la, --version are not paths
+        candidate = Path(arg)
+        if not candidate.is_absolute():
+            candidate = Path.cwd() / candidate
+        try:
+            resolved = candidate.resolve()
+        except (OSError, RuntimeError):
+            print(f"\033[1;31m🛑 [PATH RESOLUTION ERROR] Could not resolve argument: {arg}\033[0m")
+            sys.exit(1)
+        if any(str(resolved) == root or str(resolved).startswith(root + "/") for root in SENSITIVE_ROOTS):
+            print(f"\033[1;31m🛑 [PATH TRAVERSAL BLOCKED] Resolved path hits sensitive root: {resolved}\033[0m")
             sys.exit(1)
 
-    # 4. HARDENED SUBPROCESS EXECUTION (shell=False)
+    # 5. HARDENED SUBPROCESS EXECUTION (shell=False, resolved absolute binary path)
     print("\033[1;32m[200 PERMISSION GRANTED]\033[0m Security policies passed. Executing binary via execve()...\n")
     try:
-        binary_path = ALLOWED_BINARIES.get(cmd_binary, cmd_binary)
+        exec_args = [str(binary_path)] + args[1:]  # use the RESOLVED absolute path, not the raw name
         result = subprocess.run(
-            args,              # List form -> direct execve(), NO /bin/sh invocation!
+            exec_args,         # List form -> direct execve(), NO /bin/sh invocation!
             shell=False,       # CRITICAL FAANG MANDATE: NEVER SHELL=TRUE
             text=True,
             capture_output=True,
