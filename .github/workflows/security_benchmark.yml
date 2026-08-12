@@ -23,6 +23,10 @@ jobs:
       run: |
         PYTHONPATH=. python3 core/integrity_engine.py
 
-    - name: Run Red-Team Stress Test
+    - name: Run Basic Red-Team Hardening Benchmark
       run: |
         PYTHONPATH=. python3 tests/stress_test.py
+
+    - name: Run Advanced Red-Team Adversarial Suite
+      run: |
+        PYTHONPATH=. python3 tests/redteam_advanced.py
