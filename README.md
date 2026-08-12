@@ -1,90 +1,76 @@
-> 🎓 **Academic & Strategic Alignment:** Developed as part of the *Professional Certificate Program in Generative AI, Machine Learning & Intelligent Automation* offered by **IHFC - I-Hub Foundation for Cobotics (IIT Delhi)** in collaboration with **Simplilearn** and **Microsoft**.
+# 🛡️ NomaanOS Core: Sovereign AI Operating Environment (v6.0)
 
-![Red-Team Security Benchmark](https://github.com/NomaanOS-Code/NomaanOS-Core/actions/workflows/redteam.yml/badge.svg)
+[![Security Benchmark](https://github.com/NomaanOS-Code/NomaanOS-Core/actions/workflows/security_benchmark.yml/badge.svg)](https://github.com/NomaanOS-Code/NomaanOS-Core/actions)
+[![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![AI Engine: Local Ollama](https://img.shields.io/badge/AI%20Engine-Ollama%20%28Phi--3%2FLlama--3%29-orange.svg)](https://ollama.ai/)
 
-[🌐 Visit Official Website](https://nomaanos-code.github.io/NomaanOS-Core/)
-
-![Status](https://img.shields.io/badge/Status-STABLE%20v6.0-brightgreen?style=for-the-badge) ![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge) ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white) ![Scholar](https://img.shields.io/badge/Scholar-IHFC%20IIT%20Delhi-navy?style=for-the-badge)
-
-# 🛡️ NomaanOS Core: The Sovereign AI Operating Environment
-
-> **v6.0 "Command Center" | Status: STABLE (Maturity: 10/10)**
-> **Author:** Nomaan Khan | Tech Visionary & Cybersecurity Researcher | Scholar @ IHFC - IIT Delhi
-
-NomaanOS is an agentic overlay for Linux kernels designed to enforce **Digital Sovereignty**. Unlike traditional shells, it decouples AI Intent from system execution using a deterministic Sentinel Proxy, ensuring immunity against prompt injection and hallucinations.
+> **Research & Architecture Prototype**: NomaanOS Core is an agentic security overlay designed for Linux kernels. It decouples AI Intent from OS System Execution through a deterministic, multi-stage Sentinel Interceptor and local Small Language Models (SLMs).
 
 ---
 
-## 🌟 Core Architecture (The "Aegis Protocol")
+## 🏛️ Core Architecture (The Aegis Protocol)
 
-| Component | Status | Function |
+| Subsystem | Security Role | Implementation Detail |
 | :--- | :--- | :--- |
-| 🧠 **AEGIS Brain** | `SOVEREIGN` | Local Intelligence (Phi-3/Llama via Ollama). 100% Offline Capable. |
-| 🔥 **Phoenix Engine** | `SYNCED` | Cryptographic Self-Healing. Restores corrupted logic automatically. |
-| ⌨️ **Neural Lock** | `ACTIVE` | Continuous Authentication via Keystroke Dynamics ($\Delta < 0.30$). |
-| ⛩️ **Sentinel Proxy** | `HARDENED` | Deterministic Logic Gate. Blocks unauthorized AI commands. |
-| 📦 **Process Sandbox** | `ACTIVE` | Isolates high-CPU processes using SIGSTOP signals. |
-| ☢️ **Panic Button** | `ARMED` | Scorched Earth Protocol for emergency data destruction. |
+| **AEGIS Brain** | Local Offline Intelligence | Ollama (Phi-3 / Llama-3) 100% Sovereign Inference |
+| **Sentinel Proxy** | Deterministic Interceptor | Multi-Stage Normalizer + Regex Logic Gate |
+| **System Executor** | Isolated Subprocess Exec | Non-shell (`shell=False`) argument vector execution |
+| **Integrity Engine** | Cryptographic Verification | SHA-256 Hashes with HMAC Signature Manifests |
+| **Forensic Ledger** | Audit Logging | Local JSON evidence ledgers with cryptographic hashes |
 
 ---
 
-## 🛠️ Tech Stack & Requirements
+## 🔒 Security Scope & Threat Model
 
-* **Core:** Python 3.10+ / Bash / Linux (Pop!_OS / Alpine / Termux)
-* **Local AI:** Ollama (Phi-3 / Llama-3)
-* **Security:** AES-256 Encryption, Sandboxed Execution, Keystroke Dynamics
+NomaanOS Core treats AI intent as inherently untrusted. The security enforcement layer operates on a **Defense-in-Depth** model:
 
----
-
-## 📐 System Architecture (The "Aegis Protocol")
-
-```mermaid
-graph TD
-    A[User Input] --> B[Raw Text Sanitizer / Intent Sanitizer]
-    B -->|Clean Intent| C[AEGIS Brain - Local AI / Ollama]
-    C -->|JSON Request| D[Sentinel Proxy]
-    
-    D -->|Authorized| E[System Executor]
-    D -->|Denied| F[Block & Security Alert]
-    
-    E --> G[Tools: Process Sandbox / Neural Lock]
-    G --> H[(Evidence Ledger - Section 65B Compliant)]
-    
-    I[Phoenix Engine] -. Monitors Integrity .-> C
-    I -. Monitors Integrity .-> D
-```
+1. **Multi-Stage Normalization**: Resolves URL double-encoding, Cyrillic homoglyph substitution, leetspeak, zero-width spaces, and NFKC Unicode canonicalization before pattern inspection.
+2. **Deterministic Interception**: Pre-execution blocklist preventing standard prompt injections and dangerous system operations.
+3. **Safe Process Isolation**: Command execution via `execve()` system calls (`shell=False`), preventing shell metacharacter expansion (`;`, `&&`, `|`).
+4. **HMAC Cryptographic Verification**: Signed manifest ensuring codebase integrity against unauthorized local file tampering.
 
 ---
 
-## ⚖️ Security & Intellectual Property Policy
+## 🧪 Security Benchmarks & Red-Teaming
 
-* **Ownership:** NomaanOS Core is the proprietary research and intellectual property of **Nomaan Khan**.
-* **Audit Ledger:** All actions are cryptographically logged in `data/evidence_ledger.json`.
-* **Licensing Inquiries:** `nikki08@duck.com`
-
----
-### 🛡️ Red-Team Adversarial Hardening Status
-- **Benchmark Score:** `100.0% Immunity` (5/5 Attack Vectors Mitigated)
-- **Verified Protection:** Direct Injections, Command Escapes, System Overrides, Data Exfiltration & Base64 Obfuscated Payloads.
-- **Latest Audit Log:** [`redteam_benchmark.json`](./redteam_benchmark.json)
-
-
----
-### 🐳 One-Click Docker Execution
-
-Run NomaanOS Core and Aegis Red-Team Engine in an isolated sandbox:
+To run local stress tests and verify system immunity:
 
 ```bash
-# Clone repository
-git clone https://github.com/NomaanOS-Code/NomaanOS-Core.git
-cd NomaanOS-Core
+# 1. Verify Cryptographic Signature of Core Modules
+PYTHONPATH=. python3 core/integrity_engine.py
 
-# Build and run via Docker
-docker build -t nomaanos-core .
-docker run --rm nomaanos-core
-```
+# 2. Execute Red-Team Adversarial Test Suites
+PYTHONPATH=. python3 tests/stress_test.py
+PYTHONPATH=. python3 tests/redteam_advanced.py
+---
 
-### ⚡ Newly Integrated Production Components (August 2026)
-* **`rag_engine.py` (`nos-rag`)**: Real Local Agentic Vector RAG Engine for instant context extraction across research whitepapers.
-* **`api_tester.py` (`nos-api-test`)**: HTTP Socket Integration Tester executing live REST validation against Port 8080.
-* **`nos_exec.py` (`nos-exec`)**: Real-time terminal command execution guard preventing malicious system calls.
+### 2. `SECURITY.md` File Ensure Karo
+
+Ye file auditors ke liye bohot badi indicator hoti hai ki project security standards follow karta hai:
+
+```bash
+cat << 'EOF' > SECURITY.md
+# Security Policy & Threat Disclosure
+
+## Supported Versions
+
+| Version | Supported | Notes |
+| ------- | --------- | ----- |
+| 6.x     | :white_check_mark: | Active Hardened Architecture |
+| < 6.0   | :x: | Legacy / Prototype Models |
+
+## Threat Model & Security Boundaries
+
+NomaanOS Core is a **deterministic security gate research prototype**. It is designed to mitigate:
+- Direct Command Injections (`rm -rf`, system overrides)
+- Common Prompt Injections & Base64 Obfuscated Payloads
+- Shell Metacharacter Escapes
+
+### Out-of-Scope / Known Non-Goals
+- Zero-day OS-level kernel exploits (handled by host OS DAC/MAC policies).
+- Semantic-only prompt drift without explicit command execution.
+
+## Reporting a Vulnerability
+
+If you discover a security vulnerability within NomaanOS Core, please report it directly via email:
+`nikki108@duck.com`
