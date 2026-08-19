@@ -1,0 +1,18 @@
+[
+  {
+    "index": 0,
+    "timestamp": 1787135791.766811,
+    "event": "GENESIS_NODE_INITIALIZED",
+    "payload_sha256": "09cf63c48e491c02e9e2d45d79e8cf3b8c7e7b27cddb1ee05e12857683adb2ad",
+    "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "node_hash": "09cf63c48e491c02e9e2d45d79e8cf3b8c7e7b27cddb1ee05e12857683adb2ad"
+  },
+  {
+    "index": 1,
+    "timestamp": 1787135791.76695,
+    "event": "SANDBOX_EXECUTION_LS",
+    "payload_sha256": "e8fe008ca11c031f5520e97fe0d12a5e9f8283b71935a7d8c481304dbed2f053",
+    "previous_hash": "09cf63c48e491c02e9e2d45d79e8cf3b8c7e7b27cddb1ee05e12857683adb2ad",
+    "node_hash": "d757f9388ee282b037ae114f80cbffbc08842745cf363018a99859080a1d7ae3"
+  }
+]
