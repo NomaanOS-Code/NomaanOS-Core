@@ -1,4 +1,4 @@
-name: NomaanOS CI & Verification
+name: NomaanOS Aegis Hardening CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build-and-verify:
+  redteam-security-benchmark:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Integrity Verification
+      - name: Run Red-Teaming Immunity Benchmark
         run: |
-          echo "Verifying Aegis Protocol manifests..."
-          sha256sum README.md
+          python3 tests/test_redteam.py
+
+      - name: Verify Forensic Ledger Integrity
+        run: |
+          python3 src/nomaanos/evidence_ledger.py
