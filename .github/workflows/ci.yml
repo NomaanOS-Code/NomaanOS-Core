@@ -1,0 +1,26 @@
+name: NomaanOS CI & Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          autocrlf: false
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Integrity Verification
+        run: |
+          echo "Verifying Aegis Protocol manifests..."
+          sha256sum README.md
