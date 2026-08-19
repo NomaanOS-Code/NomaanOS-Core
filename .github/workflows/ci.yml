@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Red-Teaming Immunity Benchmark
         run: |
-          PYTHONPATH=src/nomaanos python3 tests/test_redteam.py
+          python3 -m unittest discover -s tests -p "test_*.py" || PYTHONPATH=src/nomaanos python3 tests/test_redteam.py
 
       - name: Verify Forensic Ledger Integrity
         run: |
