@@ -14,5 +14,61 @@
     "payload_sha256": "e8fe008ca11c031f5520e97fe0d12a5e9f8283b71935a7d8c481304dbed2f053",
     "previous_hash": "09cf63c48e491c02e9e2d45d79e8cf3b8c7e7b27cddb1ee05e12857683adb2ad",
     "node_hash": "d757f9388ee282b037ae114f80cbffbc08842745cf363018a99859080a1d7ae3"
+  },
+  {
+    "index": 2,
+    "timestamp": 1787135928.305345,
+    "event": "EXECUTION_LS",
+    "payload_sha256": "22cb95153faa1105fdd51db6090a3ca16c7477bafd35e7a77f9dc0dbaf3679e1",
+    "previous_hash": "d757f9388ee282b037ae114f80cbffbc08842745cf363018a99859080a1d7ae3",
+    "node_hash": "03f22d84db6a8e9abdcee7ab8d0225f6594df69cf9e2d05e8148ff84c34e1217"
+  },
+  {
+    "index": 3,
+    "timestamp": 1787135928.3135622,
+    "event": "SENTINEL_BLOCKED_INJECTION",
+    "payload_sha256": "BLOCKED_PAYLOAD_HASH",
+    "previous_hash": "03f22d84db6a8e9abdcee7ab8d0225f6594df69cf9e2d05e8148ff84c34e1217",
+    "node_hash": "e595624c200e00c8127b38392bbb5bfe902f8e870b405318854392946eb7ae69"
+  },
+  {
+    "index": 4,
+    "timestamp": 1787136030.78235,
+    "event": "EXECUTION_LS",
+    "payload_sha256": "22cb95153faa1105fdd51db6090a3ca16c7477bafd35e7a77f9dc0dbaf3679e1",
+    "previous_hash": "e595624c200e00c8127b38392bbb5bfe902f8e870b405318854392946eb7ae69",
+    "node_hash": "63d0ed4490eef2831cc9b39a48d377ba5ce5038ee806ac08c5c67979f6262d09"
+  },
+  {
+    "index": 5,
+    "timestamp": 1787136030.793739,
+    "event": "SENTINEL_BLOCKED_INJECTION",
+    "payload_sha256": "BLOCKED_PAYLOAD_HASH",
+    "previous_hash": "63d0ed4490eef2831cc9b39a48d377ba5ce5038ee806ac08c5c67979f6262d09",
+    "node_hash": "b69f81e7c29a75449b18bef620ac260476f870deab075f04c27718ca34e92b73"
+  },
+  {
+    "index": 6,
+    "timestamp": 1787136030.8057442,
+    "event": "SENTINEL_BLOCKED_INJECTION",
+    "payload_sha256": "BLOCKED_PAYLOAD_HASH",
+    "previous_hash": "b69f81e7c29a75449b18bef620ac260476f870deab075f04c27718ca34e92b73",
+    "node_hash": "e5ff7dd440b0deade0e3edce93161592cea59786b9c5b6382226a960d912a23f"
+  },
+  {
+    "index": 7,
+    "timestamp": 1787136030.818798,
+    "event": "SENTINEL_BLOCKED_INJECTION",
+    "payload_sha256": "BLOCKED_PAYLOAD_HASH",
+    "previous_hash": "e5ff7dd440b0deade0e3edce93161592cea59786b9c5b6382226a960d912a23f",
+    "node_hash": "084a7d9af5ba005f16da4f522cc05b670faeff0b7d09c93c36955475c0382dc7"
+  },
+  {
+    "index": 8,
+    "timestamp": 1787136030.8344262,
+    "event": "SENTINEL_EXEC_SECURITY_ERROR",
+    "payload_sha256": "ERROR_PAYLOAD_HASH",
+    "previous_hash": "084a7d9af5ba005f16da4f522cc05b670faeff0b7d09c93c36955475c0382dc7",
+    "node_hash": "30430093071c050a6359b0be8663e53246c92c4245977f2b6d342b571352adae"
   }
 ]
