@@ -1,0 +1,36 @@
+name: Red-Team Security Benchmark
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Codebase
+      uses: actions/checkout@v3
+
+    - name: Set up Python Environment
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Run Cryptographic Integrity Signer
+      run: |
+        PYTHONPATH=. python3 core/integrity_engine.py
+
+    - name: Run Basic Red-Team Hardening Benchmark
+      run: |
+        PYTHONPATH=. python3 tests/stress_test.py
+
+    - name: Run Advanced Red-Team Adversarial Suite
+      run: |
+        PYTHONPATH=. python3 tests/redteam_advanced.py
+
+    - name: Run nos_exec.py Allowlist Regression Tests
+      run: |
+        PYTHONPATH=. python3 tests/test_nos_exec.py

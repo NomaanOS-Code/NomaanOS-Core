@@ -1,0 +1,13 @@
+{
+    "files": {
+        "core/sentinel_core.py": "22ad03922c9cdad1eb5553243bd5b0f07c91d5937c740053e467c9f6754e0540",
+        "core/nomaan_ai.py": "99dd1db88476f69e6e3b24f916150ab8af495986cf783afdffe22be46e1a47ae",
+        "core/api.py": "28af10b613501e73914302b3e7a147cfb9443663c1df32a3391584e5b4f42bd0",
+        "core/rag_engine.py": "aa432a9445603ef7a90499d5acffb3a0b495636d41713be97e03bfed90aff04b",
+        "core/nos_exec.py": "c889467e8ae3fa63c6e536c8ef250f23699d3f77eba9518663678c95d58bdc1c",
+        "tests/stress_test.py": "862886581fccaf4c1295cc462a20bd2697e572e55b4c2c191bf57c3ef0a36c08",
+        "tests/redteam_advanced.py": "f546caaded56e325d0f8f1711a8cac4c3d4865bdddecc1f8bd47d44e122c12bd"
+    },
+    "signed_at": "2026-08-15T04:00:26.009885",
+    "hmac_signature": "46bdeef31a65f18aa8c5ef520d619ef3a1430b4150d782fdf9e9e6873224abaa"
+}

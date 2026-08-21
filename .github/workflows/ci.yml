@@ -1,0 +1,29 @@
+name: NomaanOS Aegis Hardening CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  redteam-security-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          autocrlf: false
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Red-Teaming Immunity Benchmark
+        run: |
+          python3 -m unittest discover -s tests -p "test_*.py" || PYTHONPATH=src/nomaanos python3 tests/test_redteam.py
+
+      - name: Verify Forensic Ledger Integrity
+        run: |
+          PYTHONPATH=src/nomaanos python3 src/nomaanos/evidence_ledger.py
