@@ -1,140 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NomaanOS - The Sovereign AI Operating Environment</title>
+    <title>NomaanOS Core v6.0 | Live SOC Console</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 60px 40px;
-            max-width: 700px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #667eea;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        .description {
-            color: #555;
-            font-size: 1em;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-        .feature {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        .feature strong {
-            color: #667eea;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        a {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        a:hover {
-            background: #764ba2;
-        }
-        a.secondary {
-            background: #e9ecef;
-            color: #333;
-        }
-        a.secondary:hover {
-            background: #dee2e6;
-        }
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e9ecef;
-            color: #888;
-            font-size: 0.9em;
-        }
+        body { font-family: 'JetBrains Mono', monospace; background-color: #090d16; color: #00f0ff; }
+        .glass-panel { background: rgba(13, 22, 38, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(0, 240, 255, 0.2); }
+        .neon-glow { box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>🛡️ NomaanOS</h1>
-        <p class="subtitle">The Sovereign AI Operating Environment</p>
-        
-        <div class="description">
-            <p>NomaanOS is a cutting-edge AI operating environment built on the <strong>AEGIS Protocol</strong> and powered by the <strong>Sentinel Proxy</strong>. It provides a secure, sovereign infrastructure for autonomous AI agents.</p>
+<body class="p-4 md:p-8 min-h-screen flex flex-col justify-between">
+    <!-- Header -->
+    <header class="glass-panel p-6 rounded-xl flex flex-col md:flex-row justify-between items-center mb-6 neon-glow">
+        <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-400 flex items-center justify-center text-2xl">🛡️</div>
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-wider text-cyan-400">NomaanOS Core v6.0</h1>
+                <p class="text-xs text-slate-400">Sovereign Edge AI Operating Environment | Scholar @ IHFC - IIT Delhi</p>
+            </div>
         </div>
+        <div class="mt-4 md:mt-0 flex items-center space-x-6">
+            <div class="text-right">
+                <span class="text-xs text-slate-400 block">DAEMON STATUS</span>
+                <span id="daemon-status" class="text-sm font-bold text-yellow-400 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span> DISCONNECTED
+                </span>
+            </div>
+            <div class="text-right">
+                <span class="text-xs text-slate-400 block">LATENCY</span>
+                <span id="live-latency" class="text-sm font-bold text-cyan-300">-- ms</span>
+            </div>
+        </div>
+    </header>
 
-        <div class="features">
-            <div class="feature">
-                <strong>🔐 AEGIS Protocol</strong>
-                Advanced encryption and security framework
+    <!-- Main Live Grid -->
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 flex-grow">
+        <!-- Live Terminal Stream -->
+        <section class="glass-panel p-6 rounded-xl lg:col-span-2 flex flex-col">
+            <div class="flex justify-between items-center mb-4 border-b border-cyan-900 pb-2">
+                <h2 class="text-lg font-bold text-cyan-300 flex items-center gap-2">⚡ Live Aegis Execution Audit Stream</h2>
+                <button onclick="pingDaemon()" class="text-xs px-2 py-1 bg-cyan-950 text-cyan-400 rounded border border-cyan-800 hover:bg-cyan-900">Ping Daemon (POST)</button>
             </div>
-            <div class="feature">
-                <strong>🔭 Sentinel Proxy</strong>
-                Intelligent monitoring and control layer
+            <div id="terminal-stream" class="bg-black/80 rounded-lg p-4 font-mono text-xs text-slate-300 flex-grow overflow-y-auto max-h-96 space-y-2 border border-slate-800">
+                <p class="text-yellow-400">[SYSTEM] Enter your Pinggy URL below and click Connect Daemon.</p>
             </div>
-            <div class="feature">
-                <strong>🤖 AI Native</strong>
-                Built for autonomous agent deployment
-            </div>
-            <div class="feature">
-                <strong>⚡ High Performance</strong>
-                Optimized for speed and reliability
-            </div>
-        </div>
+        </section>
 
-        <div class="links">
-            <a href="https://github.com/NomaanOS-Code/NomaanOS-Core">View on GitHub</a>
-            <a href="https://github.com/NomaanOS-Code/NomaanOS" class="secondary">Core Repository</a>
-        </div>
+        <!-- Direct Control Panel -->
+        <section class="space-y-6">
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="text-sm font-bold text-cyan-400 mb-3 border-b border-cyan-900 pb-2">🌐 Bridge Endpoint Config</h3>
+                <input type="text" id="api-url-input" placeholder="Paste Pinggy URL here..." class="w-full p-2 bg-slate-900 border border-cyan-800 rounded text-xs text-cyan-200 mb-3 focus:outline-none focus:border-cyan-400">
+                <button onclick="saveEndpoint()" class="w-full py-2 bg-cyan-500/20 hover:bg-cyan-500/40 border border-cyan-400 text-cyan-300 text-xs rounded font-bold transition">Connect Daemon (POST Probe)</button>
+            </div>
 
-        <div class="footer">
-            <p>NomaanOS © 2026 | The Sovereign AI Operating Environment</p>
-        </div>
-    </div>
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="text-sm font-bold text-cyan-400 mb-3 border-b border-cyan-900 pb-2">⚡ Direct Workstation Execution</h3>
+                <input type="text" id="cmd-input" placeholder="Enter shell command (e.g., ls -la)..." value="ls -la" class="w-full p-2 bg-slate-900 border border-cyan-800 rounded text-xs text-cyan-200 mb-3 focus:outline-none">
+                <button onclick="executeRealCommand()" class="w-full py-2 bg-emerald-500/20 hover:bg-emerald-500/40 border border-emerald-400 text-emerald-300 text-xs rounded font-bold transition">Send Command To Sentinel Proxy</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-panel p-4 rounded-xl flex justify-between items-center text-xs text-slate-400">
+        <div>Proprietary Research by <strong>Nomaan Khan</strong> (Scholar @ IHFC - IIT Delhi)</div>
+        <div class="text-cyan-500">NomaanOS Core v6.0 Sovereign Architecture</div>
+    </footer>
+
+    <script>
+        let endpoint = localStorage.getItem('nos_api_endpoint') || '';
+        document.getElementById('api-url-input').value = endpoint;
+
+        function saveEndpoint() {
+            endpoint = document.getElementById('api-url-input').value.replace(/\/$/, "");
+            localStorage.setItem('nos_api_endpoint', endpoint);
+            pingDaemon();
+        }
+
+        async function pingDaemon() {
+            if(!endpoint) return;
+            const stream = document.getElementById('terminal-stream');
+            const statusEl = document.getElementById('daemon-status');
+            const latencyEl = document.getElementById('live-latency');
+            const t0 = performance.now();
+
+            try {
+                // Sending POST request with dummy command to probe endpoint
+                const res = await fetch(`${endpoint}/api/v1/exec`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: "echo probe" })
+                });
+                const t1 = performance.now();
+                const latency = (t1 - t0).toFixed(3);
+
+                if (res.ok || res.status === 403) {
+                    const data = await res.json();
+                    statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> ONLINE / HARDENED';
+                    statusEl.className = 'text-sm font-bold text-emerald-400 flex items-center gap-2';
+                    latencyEl.innerText = `${latency} ms`;
+
+                    const entry = document.createElement('p');
+                    entry.className = "text-emerald-400";
+                    entry.innerText = `[POST PROBE SUCCESS] Status: ${res.status} | Latency: ${latency}ms | Response: ${JSON.stringify(data)}`;
+                    stream.appendChild(entry);
+                } else {
+                    throw new Error('HTTP ' + res.status);
+                }
+            } catch (err) {
+                statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500"></span> DISCONNECTED';
+                statusEl.className = 'text-sm font-bold text-red-500 flex items-center gap-2';
+
+                const entry = document.createElement('p');
+                entry.className = "text-red-400";
+                entry.innerText = `[PROBE ERROR] Ping failed at ${endpoint}: ${err.message}`;
+                stream.appendChild(entry);
+            }
+            stream.scrollTop = stream.scrollHeight;
+        }
+
+        async function executeRealCommand() {
+            const cmd = document.getElementById('cmd-input').value;
+            if(!cmd || !endpoint) return;
+            const stream = document.getElementById('terminal-stream');
+
+            try {
+                const res = await fetch(`${endpoint}/api/v1/exec`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ command: cmd })
+                });
+                const data = await res.json();
+                const entry = document.createElement('p');
+                entry.className = res.ok ? "text-cyan-300" : "text-yellow-400";
+                entry.innerText = `[SENTINEL AUDIT] Command: "${cmd}" | HTTP ${res.status} | Output: ${JSON.stringify(data)}`;
+                stream.appendChild(entry);
+            } catch(e) {
+                const entry = document.createElement('p');
+                entry.className = "text-red-400";
+                entry.innerText = `[EXEC ERROR] Execution failed: ${e.message}`;
+                stream.appendChild(entry);
+            }
+            stream.scrollTop = stream.scrollHeight;
+        }
+
+        if(endpoint) pingDaemon();
+    </script>
 </body>
 </html>
