@@ -1,1 +1,5 @@
 __pycache__/\n*.log\n*.tmp\n.env
+
+# Python generated files
+__pycache__/
+*.py[cod]

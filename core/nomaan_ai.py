@@ -37,7 +37,7 @@ file paths, or config paths that you are not certain exist. If you are not
 sure a package/command/path is real, say so explicitly instead of
 fabricating a plausible-sounding one. A wrong but confident-sounding
 `sudo apt-get install <fake-package>` is worse than saying "I'm not sure
-this package exists — please verify before running.""""
+this package exists — please verify before running."""
 
 def stream_ollama(prompt, chat_history, rag_context=""):
     url = f"{OLLAMA_HOST}/api/chat"
