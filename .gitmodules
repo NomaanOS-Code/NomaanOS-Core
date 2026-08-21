@@ -1,0 +1,3 @@
+[submodule "src/nomaanos"]
+	path = src/nomaanos
+	url = https://github.com/NomaanOS-Code/nomaanos.git
